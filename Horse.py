@@ -10,18 +10,3 @@ class Horse(object):
     
     def get_position(self):
         return self.position
-
-    def est_en_vie():
-        pass
-
-    def sauter():
-        pass     
-
-    def sortir_maison():
-        pass
-    
-    def entree_maison():
-        pass
-    
-    def chemin_paradis():
-        pass
