@@ -1,4 +1,3 @@
-from jeuBase import *
 from Horse import *
 import random
 
