@@ -31,3 +31,4 @@ if menu1 == "1":
     print("Lancer le dé : ")
     case = j1.lancerDe()
     print(f"Vous avez avancé de {case} cases")
+    
