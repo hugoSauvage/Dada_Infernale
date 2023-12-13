@@ -1,9 +1,9 @@
 from jeuBase import *
 class Horse(object):
     
-    def __init__(self, couleur, nom, position = 0) -> None:
+    def __init__(self, couleur, nom) -> None:
         self.couleur = couleur
-        self.position = position
+        self.position = 0
         self.nom = nom
 
         
