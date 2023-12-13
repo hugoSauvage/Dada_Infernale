@@ -31,16 +31,16 @@ class jeuBase:
     
 
     def ajouter_cheval(self, cheval)->list:
-        if self.couleur.cheval == "jaune":
+        if self.couleur.cheval == "Jaune":
             self.plateau.append(cheval)
             self.position = [0]
-        if self.couleur.cheval == "rouge":
+        if self.couleur.cheval == "Rouge":
             self.plateau.append(cheval)
             self.position = [15]
-        if self.couleur.cheval == "bleu":
+        if self.couleur.cheval == "Bleu":
             self.plateau.append(cheval)
             self.position = [29]
-        if self.couleur.cheval == "vert":
+        if self.couleur.cheval == "Vert":
             self.plateau.append(cheval)
             self.position = [43]
 
