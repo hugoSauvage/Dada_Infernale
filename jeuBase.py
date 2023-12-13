@@ -1,10 +1,11 @@
-from random import *
+import random
 from Horse import Horse
 
 class jeuBase:
     def __init__(self, joueurs) -> None:
         self.joueurs = [Horse(joueur) for joueur in joueurs]
         self.victoire = False
+        self.plateau = []
    
     def lancerDe(self):
         return random.randint(1, 6)
@@ -28,4 +29,6 @@ class jeuBase:
     def afficher_positions(self):
         for cheval in self.chevaux:
             print(f"{cheval.nom}: {cheval.position}")
-    
+
+# jeu = jeuBase()
+# print(jeu.afficher_plateau)
