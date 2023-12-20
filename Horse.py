@@ -7,10 +7,6 @@ class Horse(object):
         self.position = 0
         self.etat = False
     
-    def lancerDe(self):
-        input("Appuyer sur Entrée pour lancer le dé")
-        return random.randint(1, 6)
-    
     def se_deplacer(self):
         if self.position + self.lancerDe() >= 0:
             self.position += self.lancerDe() 
@@ -22,7 +18,10 @@ class Horse(object):
         return self.position
     
     def lancerDe(self)-> int :
-        return random.randint(1, 6)
+        n = random.randint(1, 6)
+        print(f"{self.nom} a avancé de {n} cases")
+        if n == 6:
+            print("Vous sortez de votre maison et entrer sur le plateau")
 
     def avancer_cheval(self, cheval, de)->int:
         cheval.position += de
@@ -70,10 +69,6 @@ class Horse(object):
         while self.nbtour == False:
             return self.afficher_positions
         return ' vous avais gagner '
-
-    def sortir( self)->object:
-        if self.lancerDe == 6:
-            self.ajouter_cheval
 
     def __str__(self) -> str:
         l1 = f"**** {self.nom} ****\n"

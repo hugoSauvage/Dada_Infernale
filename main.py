@@ -1,4 +1,5 @@
 from Horse import *
+from Bot import *
 import random
 
 print("""
@@ -18,16 +19,39 @@ if menu1 == "1":
     
     if def_couleur == "1":
         j1 = Horse(def_nom, "Jaune")
+        b1 = Bot("Bot1", "Rouge")
+        b2 = Bot("Bot2", "Vert")
+        b3 = Bot("Bot3", "Bleu")
     elif def_couleur == "2":
         j1 = Horse(def_nom, "Rouge")
+        b1 = Bot("Bot1", "Jaune")
+        b2 = Bot("Bot2", "Vert")
+        b3 = Bot("Bot3", "Bleu")
     elif def_couleur == "3":
         j1 = Horse(def_nom, "Bleu")
+        b1 = Bot("Bot1", "Rouge")
+        b2 = Bot("Bot2", "Vert")
+        b3 = Bot("Bot3", "Jaune")
     elif def_couleur == "4":
         j1 = Horse(def_nom, "Vert")
+        b1 = Bot("Bot1", "Rouge")
+        b2 = Bot("Bot2", "Jaune")
+        b3 = Bot("Bot3", "Bleu")
     
     print("Voici votre perso : ")
     print(j1)
-    print("Lancer le dé : ")
-    case = j1.lancerDe()
-    print(f"Vous avez avancé de {case} cases")
+    print("Voici vos adversaire : ")
+    print(b1)
+    print(b2)
+    print(b3)
+    input("Lancer le dé : ")
+    j1.lancerDe()
+    input("Lancer le dé : ")
+    b1.lancerDe()
+    input("Lancer le dé : ")
+    b2.lancerDe()
+    input("Lancer le dé : ")
+    b3.lancerDe()
+    input("Lancer le dé : ")
+    j1.lancerDe()
     
