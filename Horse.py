@@ -1,4 +1,3 @@
-from jeuBase import *
 import random
 class Horse(object):
     
@@ -7,10 +6,6 @@ class Horse(object):
         self.couleur = couleur
         self.position = 0
         self.etat = False
-    
-    def lancerDe(self):
-        input("Appuyer sur Entrée pour lancer le dé")
-        return random.randint(1, 6)
     
     def se_deplacer(self):
         if self.position + self.lancerDe() >= 0:
@@ -23,16 +18,16 @@ class Horse(object):
         return self.position
     
     def lancerDe(self)-> int :
-        return random.randint(1, 6)
-    
+        n = random.randint(1, 6)
+        print(f"{self.nom} a avancé de {n} cases")
+        if n == 6:
+            print("Vous sortez de votre maison et entrer sur le plateau")
 
     def avancer_cheval(self, cheval, de)->int:
         cheval.position += de
     
-    
     def afficher_plateau(self)->list:
         return self.plateau
-    
 
     def jouer_tour(self, joueur):
         input(f"{joueur.nom} Appuyer sur Entrée pour lancer le dé")
@@ -40,7 +35,6 @@ class Horse(object):
         self.avancer_cheval(joueur, de)
         self.afficher_plateau()
         print(f"{joueur.nom} a avancé jusque la position {joueur.position}")
-    
 
     def ajouter_cheval(self, cheval)->list:
         if self.couleur.cheval == "Jaune":
@@ -57,14 +51,13 @@ class Horse(object):
             self.position = [43]
 
     def nbtour(self)-> bool:
-        return self.position == 2*self.position         
+        pass      
     
     def afficher_positions(self)-> str:
         for cheval in self.chevaux:
             print(f"{cheval.nom}: {cheval.position}")
 
-
-    def sauter( self, cheval_1,cheval_2):
+    def sauter(self, cheval_1,cheval_2):
         if cheval_1.position == cheval_2.position:
             cheval_1.position = cheval_2.position
             self.plateau.pop(cheval_2)
@@ -72,16 +65,10 @@ class Horse(object):
             cheval_2.position = cheval_1.position
             self.plateau.pop(cheval_2)
 
-
-    def victoire( self,cheval)-> str:
+    def victoire( self, cheval)-> str:
         while self.nbtour == False:
             return self.afficher_positions
         return ' vous avais gagner '
-
-
-    def sortir( self)->object:
-        if self.lancerDe == 6:
-            self.ajouter_cheval
 
     def __str__(self) -> str:
         l1 = f"**** {self.nom} ****\n"
