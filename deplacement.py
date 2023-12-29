@@ -1,4 +1,4 @@
-from plateau import *
+from Horse import *
 # déplacement du personnage sur la map
 
 def deplacer_vers_haut(map):
