@@ -17,6 +17,7 @@ map1 = [
        [" |","└", "-", " -", " -", "-", "┘", "M", "V", "●", "└", "-", " -", " -", "-","┘","|"],
 
        ]
+# crée une double liste avec dans un liste les ● puis mettre dans la liste une autre liste avec les caracthère spéciale
 
 import random
 
@@ -79,4 +80,5 @@ jeu = JeuDeSociete(map1)
 jeu.deplacer_cheval("hr")
 print("Position du cheval rouge:", jeu.chevaux["hr"]["position"])
 print("Tour terminé:", jeu.chevaux["hr"]["termine"])
-print(jeu.__str__)
+print(map1)
+print(jeu.__str__())
