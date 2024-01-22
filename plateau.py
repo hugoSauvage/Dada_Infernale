@@ -17,6 +17,7 @@ map1 = [
        [" |","└", "-", " -", " -", "-", "┘", "M", "V", "●", "└", "-", " -", " -", "-","┘","|"],
 
        ]
+# crée une double liste avec dans un liste les ● puis mettre dans la liste une autre liste avec les caracthère spéciale
 
 import random
 
