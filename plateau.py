@@ -1,4 +1,3 @@
-from deplacement import *
 map1 = [
        [" |","┌", "-", " -", " -", "-", "┐", "●", "J", "M"," ┌", "-", " -", " -", "-","┐","|"],
        [" |","|", "0", " 0", " 0", "0", "|", "●", "1", "●", "|", "0", "0", "0", "0", " |","|"],
@@ -82,3 +81,19 @@ print("Position du cheval rouge:", jeu.chevaux["hr"]["position"])
 print("Tour terminé:", jeu.chevaux["hr"]["termine"])
 print(map1)
 print(jeu.__str__())
+
+from Horse import *
+
+
+ligne1=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+maison =[1,2,3,4,5,6]
+
+def déplacement (self) :
+    if self.chevaux.couleur == "vert":
+        position = ligne1[0]
+    elif self.chevaux.couleur == "jaune":
+        position = ligne1[14]
+    elif self.chevaux.couleur == "bleu":
+        position = ligne1 =[28]
+    elif self.chevaux.couleur == "rouge":
+        position = ligne1[42]
