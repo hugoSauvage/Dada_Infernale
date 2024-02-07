@@ -170,7 +170,7 @@ def jouer_partie(joueurs):
                     gerer_collision(joueur, autre_joueur)
             if joueur.position == len(plateau) - 1:
                 print(f"{joueur.nom} ({joueur.couleur}) a gagné le jeu!")
-                return
+                return True
 
 
 def deplacer_joueur(joueur, espaces):
@@ -196,13 +196,15 @@ def gerer_collision(joueur1, joueur2):
         joueur2.position += plateau[joueur2.position]
         print(f"{joueur2.nom} est arrivé sur la même case que {joueur1.nom} et a été renvoyé en arrière!")
 
-joueur1 = Joueur("Joueur 1")
-joueur2 = Joueur("Joueur 2")
 
-while joueur1.position < len(plateau) and joueur2.position < len(plateau):
-    jouer_tour(joueur1)
-    jouer_tour(joueur2)
-    gerer_collision(joueur1, joueur2)
+
+# joueur1 = Joueur("Joueur 1")
+# joueur2 = Joueur("Joueur 2")
+
+# while joueur1.position < len(plateau) and joueur2.position < len(plateau):
+#     jouer_tour(joueur1)
+#     jouer_tour(joueur2)
+#     gerer_collision(joueur1, joueur2)
 
 joueurs = [Joueur("Joueur 1", "rouge"), Joueur("Joueur 2", "bleu"), Joueur("Joueur 3", "vert"), Joueur("Joueur 4", "jaune")]
 jouer_partie(joueurs)
