@@ -1,4 +1,4 @@
-from Horse import Horse
+from jeu_console.joueur import Horse
 
 class Bot(Horse):
     def __init__(self, nom: str, couleur: str) -> None:
