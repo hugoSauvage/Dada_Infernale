@@ -12,13 +12,13 @@ positions_depart = {
     4: (5, 11)  # Les chevaux du joueur 4 commencent sur la ligne 5, colonnes 11 et 12
 }
 
-# Commencer le jeu
-joueurs = [Joueur(1), Joueur(2), Joueur(3), Joueur(4)]
-partie = Partie(joueurs)
+# Create two players
+joueur1 = Joueur('joueur1')
+joueur2 = Joueur('joueur2')
+
+# Create a new game
+partie = Partie([joueur1, joueur2])
+
+# Start the game
 partie.jouer_tout()
 
-
-joueurs = [Joueur(f'Joueur {i + 1}') for i in range(5)]
-partie = Partie(joueurs)
-
-partie.jouer_tout()
