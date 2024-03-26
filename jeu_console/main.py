@@ -12,13 +12,13 @@ positions_depart = {
     4: (5, 11)  # Les chevaux du joueur 4 commencent sur la ligne 5, colonnes 11 et 12
 }
 
-# Create two players
-joueur1 = Joueur('joueur1')
-joueur2 = Joueur('joueur2')
 
-# Create a new game
-partie = Partie([joueur1, joueur2])
+# Create instances of Joueur class
+joueur1 = Joueur(identifiant='joueur1')
+joueur2 = Joueur(identifiant='joueur2')
+
+# Create an instance of Partie class with the players
+jeu = Partie(joueurs=[joueur1, joueur2])
 
 # Start the game
-partie.jouer_tout()
-
+jeu.jouer_tout()
