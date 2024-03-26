@@ -1,5 +1,5 @@
-from jeu_console.joueur import Horse
+from jeu_console.joueur import Joueur
 
-class Bot(Horse):
-    def __init__(self, nom: str, couleur: str) -> None:
-        Horse.__init__(self, nom, couleur)
+class Bot(Joueur):
+    def __init__(self, nom: str, pos: str) -> None:
+        Joueur.__init__(self, nom, pos)
