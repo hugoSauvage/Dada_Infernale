@@ -21,5 +21,5 @@ joueur2 = Joueur(identifiant='joueur2')
 jeu = Partie(joueurs=[joueur1, joueur2])
 
 # Start the game
-# jeu.jouer_tout()
-jeu.jouer_tour(joueur1)
+jeu.jouer_tout()
+# jeu.jouer_tour(joueur1)
