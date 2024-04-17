@@ -1,6 +1,6 @@
 class Plateau:
     def __init__(self):
-        self.plateau = [[None for _ in range(12)] for _ in range(6)]
+        self.plateau = [(i, "libre") for i in range(48)]
         self.joueurs = {}
 
     def ajouter_joueur(self, joueur_id, position_depart):
@@ -31,3 +31,10 @@ class Plateau:
             if joueur['chevaux'][0] is not None and joueur['chevaux'][1] is not None and all([p == 5 for p in joueur['chevaux']]):
                 return True
         return False
+    
+    def __str__(self) -> str:
+        return f"{self.plateau}"
+    
+
+plateauTest = Plateau()
+print(plateauTest)
