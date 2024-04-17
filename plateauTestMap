@@ -8,15 +8,15 @@ screen = pygame.display.set_mode((0,0), pygame.NOFRAME)
 pygame.display.set_caption("The Whorses")
 # pygame.display.set_icon("./assets/Cheval/ChevalVert.png")
 
-Map = pygame.image.load("./assets/Map/Whorses.png").convert_alpha()
+mapTest = pygame.image.load("./assets/Maps/Whorses.png").convert_alpha()
 
-print("size of image is (width,height):", Map.get_size())
+print("size of image is (width,height):", mapTest.get_size())
 #Boucle jeu 
 run = True
 while run:
     
     screen.fill((52, 78, 91))
-    screen.blit(Map, (0,300))
+    screen.blit(mapTest, (1920,1080))
 
     
     #Evenement
