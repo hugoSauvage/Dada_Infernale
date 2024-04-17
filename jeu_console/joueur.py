@@ -3,28 +3,29 @@ from Cheval import Cheval
 
 
 class Joueur:
-    NB_PLAYERS = 2
-
-    def __init__(self, identifiant, ecurie:str):
+   
+    def __init__(self, identifiant:str, ecurie:str, start_position:int):
         self.identifiant = identifiant
         self.paradis = [i for i in range(6)]
         self.ecurie = ecurie
         self.chevaux = [Cheval(), Cheval(), Cheval(), Cheval()]
-
-    def autre_joueur(self):
-        return self.identifiant if self.identifiant == 'joueur1' else 'joueur2'
+        self.startPosition = start_position
+        #On peut calculer la position de fin
+        self.endPosition = ((start_position + 48) - 1) % 48
 
     def lancer_de(self):
         return random.randint(1, 6)
-
-    def deplacer_pion(self, valeur_de):
-        self.position += valeur_de
-        if self.position >= self.end_position:
-            self.position = self.end_position
-
-    def est_arrive(self):
-        return self.position == self.end_position
-
+    
+    def cheval_arrive(self, id_cheval: int):
+        if id_cheval >= 0 and id_cheval <= 3 :
+            return self.chevaux[id_cheval].position == self.endPosition
+        print("Erreur de saisie de l'id du cheval [0, 3]")
+    
+    def chevalDansLEcurie(self, id_cheval: int):
+        if id_cheval >= 0 and id_cheval <= 3:
+            return self.chevaux[id_cheval].estDansLEcurie
+        print("Erreur de saisie de l'id du cheval [0, 3]")
+        
     def __str__(self) -> str:
         res = ""
         for i in range(len(self.chevaux)):
@@ -34,10 +35,12 @@ class Joueur:
 
 
 # Pour tester ! à supprimer !
-j1 = Joueur("Mr Jouin", "Rouge")
-print(j1)
+j1 = Joueur("Mr Jouin", "Rouge", 0)
+
 
 j1.chevaux[0].seDeplacer(0)
 j1.chevaux[1].seDeplacer(3)
 print(j1)
+# print(j1.cheval_arrive(0))
+print(j1.chevalDansLEcurie(2))
 

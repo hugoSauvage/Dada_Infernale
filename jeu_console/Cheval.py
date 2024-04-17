@@ -1,4 +1,4 @@
-class Cheval:
+class Cheval():
     """
     Un cheval est par défaut dans l'écurie du joueur et sa position est (-1, -1) 
     pour ne pas croire qu'il est dans le plateau
