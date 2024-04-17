@@ -1,14 +1,15 @@
 import random
+from Cheval import Cheval
 
 
 class Joueur:
     NB_PLAYERS = 2
 
-    def __init__(self, identifiant, start_position=0):
+    def __init__(self, identifiant, ecurie:str):
         self.identifiant = identifiant
-        self.score = 0
-        self.position = start_position
-        self.end_position = 100
+        self.paradis = [i for i in range(6)]
+        self.ecurie = ecurie
+        self.chevaux = [Cheval(), Cheval(), Cheval(), Cheval()]
 
     def autre_joueur(self):
         return self.identifiant if self.identifiant == 'joueur1' else 'joueur2'
@@ -23,3 +24,20 @@ class Joueur:
 
     def est_arrive(self):
         return self.position == self.end_position
+
+    def __str__(self) -> str:
+        res = ""
+        for i in range(len(self.chevaux)):
+            res += "\n   --> Cheval n°" + str(i) + " case n°" + str(self.chevaux[i].position)
+            res += " dans l'écurie " if self.chevaux[i].estDansLEcurie else " dans le plateau"
+        return f"***** Joueur : {self.identifiant} ***** \n - Ecurie : {self.ecurie}\n - Chevaux :" + res
+
+
+# Pour tester ! à supprimer !
+j1 = Joueur("Mr Jouin", "Rouge")
+print(j1)
+
+j1.chevaux[0].seDeplacer(0)
+j1.chevaux[1].seDeplacer(3)
+print(j1)
+
