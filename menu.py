@@ -12,7 +12,7 @@ pygame.display.set_caption("The Whorses")
 
 boutonJouer = pygame.image.load("./assets/Boutons/boutonJouer.png").convert_alpha()
 boutonQuitter = pygame.image.load("./assets/Boutons/boutonQuitter.png").convert_alpha()
-
+boutonReglages = pygame.image.load("./assets/Boutons/boutonReglages.png").convert_alpha()
 print("size of image is (width,height):", boutonQuitter.get_size())
 
 
