@@ -1,6 +1,5 @@
-from joueur import *
 from plateau import *
-from joueur import *
+from Joueur import *
 from partie import *
 import random
 
@@ -14,12 +13,20 @@ positions_depart = {
 
 
 # Create instances of Joueur class
-joueur1 = Joueur(identifiant='joueur1')
-joueur2 = Joueur(identifiant='joueur2')
+joueur1 = Joueur(identifiant='joueur1',ecurie="rouge")
+joueur2 = Joueur(identifiant='joueur2',ecurie="bleu")
 
 # Create an instance of Partie class with the players
 jeu = Partie(joueurs=[joueur1, joueur2])
 
-# Start the game
-jeu.jouer_tout()
+# # Start the game
+# jeu.jouer_tout()
 # jeu.jouer_tour(joueur1)
+
+
+plateau = Plateau()
+plateau.ajouter_joueur("Joueur 1", 0)
+plateau.ajouter_joueur("Joueur 2", 10)
+
+partie = Partie([plateau.joueurs["Joueur 1"], plateau.joueurs["Joueur 2"]])
+partie.jouer_tout()
