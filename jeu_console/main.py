@@ -1,5 +1,5 @@
 from plateau import *
-from Joueur import *
+from joueur import *
 from partie import *
 import random
 
