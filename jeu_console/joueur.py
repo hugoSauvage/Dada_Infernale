@@ -1,37 +1,29 @@
 import random
-from Cheval import *
-
+from Cheval import Cheval
 
 class Joueur:
-   
-    def __init__(self, identifiant:str, ecurie:str, start_position:int):
+    def __init__(self, identifiant, ecurie, start_position):
         self.identifiant = identifiant
-        self.paradis = [i for i in range(6)]
         self.ecurie = ecurie
-        self.chevaux = [Cheval(), Cheval(), Cheval(), Cheval()]
         self.startPosition = start_position
-        #On peut calculer la position de fin
-        self.endPosition = ((start_position + 48) - 1) % 48
+        self.endPosition = (start_position + 47) % 48
+        self.chevaux = [Cheval() for _ in range(4)]
 
-    def lancer_de(self)->int:
+    def lancer_de(self):
         return random.randint(1, 6)
-    
-    def cheval_arrive(self, id_cheval: int):
-        if id_cheval >= 0 and id_cheval <= 3 :
+
+    def cheval_arrive(self, id_cheval):
+        if 0 <= id_cheval < len(self.chevaux):
             return self.chevaux[id_cheval].position == self.endPosition
-        print("Erreur de saisie de l'id du cheval [0, 3]")
-    
-    def chevalDansLEcurie(self, id_cheval: int):
-        if id_cheval >= 0 and id_cheval <= 3:
+        else:
+            print("Erreur de saisie de l'id du cheval [0, 3]")
+
+    def chevalDansLEcurie(self, id_cheval):
+        if 0 <= id_cheval < len(self.chevaux):
             return self.chevaux[id_cheval].estDansLEcurie
-        print("Erreur de saisie de l'id du cheval [0, 3]")
-    
-               
-    def __str__(self) -> str:
-        res = ""
-        for i in range(len(self.chevaux)):
-            res += "\n   --> Cheval n°" + str(i) + " case n°" + str(self.chevaux[i].position)
-            res += " dans l'écurie " if self.chevaux[i].estDansLEcurie else " dans le plateau"
-        return f"***** Joueur : {self.identifiant} ***** \n - Ecurie : {self.ecurie}\n - Chevaux :" + res
+        else:
+            print("Erreur de saisie de l'id du cheval [0, 3]")
 
-
+    def __str__(self):
+        res = "\n".join(f"Cheval n°{i}: {cheval}" for i, cheval in enumerate(self.chevaux))
+        return f"***** Joueur : {self.identifiant} ***** \n - Ecurie : {self.ecurie}\n - Chevaux :\n{res}"

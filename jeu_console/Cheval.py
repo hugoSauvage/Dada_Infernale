@@ -1,17 +1,18 @@
-class Cheval():
-    """
-    Un cheval est par défaut dans l'écurie du joueur et sa position est (-1, -1) 
-    pour ne pas croire qu'il est dans le plateau
-    """
-    def __init__(self, position:int = -1) -> None:
-        self.position = position
-        self.estDansLEcurie = True
-    
-    def seDeplacer(self, id_cheval):
-        self.estDansLEcurie = False
-        id_cheval.position += self.lancer_de
+class Cheval:
+    def __init__(self):
+        self.position = -1  # Position initiale du cheval
+        self.estDansLEcurie = True  # Indique si le cheval est dans l'écurie ou non
 
-    
-    def __str__(self) -> str:
-        return f"{self.position}"
-    
+    def seDeplacer(self, deplacement):
+        # Méthode pour déplacer le cheval
+        if not self.estDansLEcurie:
+            self.position = (self.position + deplacement) % 48  # Pour un plateau circulaire
+
+    def sortirEcurie(self):
+        # Méthode pour faire sortir le cheval de l'écurie
+        if self.estDansLEcurie:
+            self.estDansLEcurie = False
+            self.position = 0  # Position de départ sur le plateau
+
+    def __str__(self):
+        return f"Position: {self.position}, Dans l'écurie: {self.estDansLEcurie}"
