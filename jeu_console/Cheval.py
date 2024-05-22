@@ -7,9 +7,10 @@ class Cheval():
         self.position = position
         self.estDansLEcurie = True
     
-    def seDeplacer(self, position:int):
+    def seDeplacer(self, id_cheval):
         self.estDansLEcurie = False
-        self.position = position
+        id_cheval.position += self.lancer_de
+
     
     def __str__(self) -> str:
         return f"{self.position}"

@@ -12,21 +12,13 @@ positions_depart = {
 }
 
 
-# Create instances of Joueur class
-joueur1 = Joueur(identifiant='joueur1',ecurie="rouge")
-joueur2 = Joueur(identifiant='joueur2',ecurie="bleu")
-
-# Create an instance of Partie class with the players
-jeu = Partie(joueurs=[joueur1, joueur2])
-
-# # Start the game
-# jeu.jouer_tout()
-# jeu.jouer_tour(joueur1)
+# Pour tester ! à supprimer !
+j1 = Joueur("Mr Jouin", "Rouge", 0)
 
 
-plateau = Plateau()
-plateau.ajouter_joueur("Joueur 1", 0)
-plateau.ajouter_joueur("Joueur 2", 10)
+j1.chevaux[0].seDeplacer(0)
+j1.chevaux[1].seDeplacer(3)
+print(j1)
+# print(j1.cheval_arrive(0))
+print(j1.chevalDansLEcurie(2))
 
-partie = Partie([plateau.joueurs["Joueur 1"], plateau.joueurs["Joueur 2"]])
-partie.jouer_tout()

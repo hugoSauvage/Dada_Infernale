@@ -10,8 +10,6 @@ class Partie:
         self.lancer_de = 0
         self.fin_de_partie = False
 
-    def lancer_le_de(self):
-        self.lancer_de = random.randint(1, 6)
 
     def joueur_suivant(self):
         # Obtient l'index du joueur actuel dans la liste joueurs.
@@ -40,7 +38,7 @@ class Partie:
         if not self.fin_de_partie:
             # Génère un nombre aléatoire entre 1 et 6 et l'assigne à l'attribut
             # lancer_de.
-            n=self.lancer_le_de()
+            n=self.lancer_de()
             # Déplace le cheval du joueur en fonction du nombre généré.
             Cheval.seDeplacer(n)
             # Vérifie si le cheval du joueur a atteint la dernière position.
