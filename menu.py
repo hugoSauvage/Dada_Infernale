@@ -1,19 +1,18 @@
 import pygame
-
-
+import Button
+import sys
 
 pygame.init()
 
 #Pour créer une fenetre
-screen = pygame.display.set_mode((0,0), pygame.NOFRAME)
-# screen = pygame.display.set_mode((1000,1000))
-pygame.display.set_caption("The Whorses")
-# pygame.display.set_icon("./assets/Cheval/ChevalVert.png")
+screen = pygame.display.set_mode((1280, 720))
+pygame.display.set_caption("The Whorses") #Titre Fenetre
 
+#Chargement d'image en tout genre 
 boutonJouer = pygame.image.load("./assets/Boutons/boutonJouer.png").convert_alpha()
 boutonQuitter = pygame.image.load("./assets/Boutons/boutonQuitter.png").convert_alpha()
 boutonReglages = pygame.image.load("./assets/Boutons/boutonReglages.png").convert_alpha()
-print("size of image is (width,height):", boutonQuitter.get_size())
+fond = pygame.image.load("./assets/background.jpg").convert()
 
 
 
@@ -21,77 +20,51 @@ def is_mouse_over_button(button, mouse_pos):
     button_rect = button.get_rect()
     return button_rect.collidepoint(mouse_pos)
 
+def options():
+    pygame.display.set_caption("The Whorses : Options")
+
+    screen.fill("Black")
+
+    options_retour = Button(image=pygame.image.load("./assets/Boutons/boutonQuitter.png"), pos=(640, 250))
+
+def play():
+    pass
+    
+
 
 # def open_parameter():
-#     # Code to open the parameter window goes here
+#     # ouvrir parametre
 #     pass
 
+def main_menu():
+    MENU_MOUSE_POS= pygame.mouse.get_pos()
 
-def open_game():
-    # Create a new Pygame window
-    parameter_screen = pygame.display.set_mode((0, 0), pygame.NOFRAME)
-    pygame.display.set_caption("Paramètre")
+    while True:
+        screen.blit(fond, (0, 0))
 
-    # Load the parameter window background image
-    parameter_background = pygame.image.load("./assets/Parametre/background.png").convert_alpha()
+        PLAY_BUTTON = Button(image=pygame.image.load("./assets/Boutons/boutonJouer.png") , pos=(640, 250))
+        OPTIONS_BUTTON = Button(image=pygame.image.load("./assets/Boutons/boutonReglages.png") , pos=(640, 400))
+        QUIT_BUTTON = Button(image=pygame.image.load("./assets/Boutons/boutonQuitter.png") , pos=(640, 550))
 
-    # Load the parameter window buttons
-    boutonRetour = pygame.image.load("./assets/Boutons/boutonRetour.png").convert_alpha()
-
-    # Boucle jeu 
-    run_game = True
-    while run_game:
-        # Fill the screen with the background color
-        parameter_screen.fill((52, 78, 91))
-
-        # Draw the background image
-        parameter_screen.blit(parameter_background, (0, 0))
-
-        # Draw the buttons
-        parameter_screen.blit(boutonRetour, (0, 0))
-
-        # Evenement
+        for button in [PLAY_BUTTON,OPTIONS_BUTTON,QUIT_BUTTON]:
+            button.update(screen)
+        
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                run_game = False
-                run = False
-            elif event.type == pygame.MOUSEBUTTONDOWN:
-                mouse_pos = event.pos
-                if is_mouse_over_button(boutonRetour, mouse_pos):
-                    run_game = False
-
-        # Update the display
+                pygame.quit()
+                sys.exit()
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if PLAY_BUTTON.checkForInput(MENU_MOUSE_POS):
+                    play()
+                if OPTIONS_BUTTON.checkForInput(MENU_MOUSE_POS):
+                    options()
+                if QUIT_BUTTON.checkForInput(MENU_MOUSE_POS):
+                    pygame.quit()
+                    sys.exit()
+                
         pygame.display.flip()
         pygame.display.update()
 
-    # Close the pa
-
-
-
-#Boucle jeu 
-run = True
-while run:
-    
-    screen.fill((52, 78, 91))
-    screen.blit(boutonJouer, (0,300))
-    screen.blit(boutonQuitter,(800,700))
-
-    
-    #Evenement
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            run = False
-        elif event.type == pygame.MOUSEBUTTONDOWN:
-            mouse_pos = event.pos
-            if is_mouse_over_button(boutonParametre, mouse_pos):
-                open_game()
-            elif is_mouse_over_button(boutonQuitter, mouse_pos):
-                run = False
-        elif event.type == pygame.K_F4:
-            pygame.quit()
-            
-    pygame.display.flip()
-    pygame.display.update()
-
+main_menu()
 pygame.quit()
 
